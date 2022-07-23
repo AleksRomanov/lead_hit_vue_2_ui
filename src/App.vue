@@ -1,32 +1,39 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <!--    <Logout v-if="isLogin" />-->
+    <Login/>
+<!--    <router-view/>-->
   </div>
 </template>
 
+
+<script>
+
+import Login from '@/components/Login'
+// import Logout from "@/components/Logout.vue";
+export default {
+  components: {
+    Login,
+  },
+  computed: {
+    isLogin() {
+      if (this.$route.path === "/auth" || this.$route.path === "/")
+        return false;
+      else return true;
+    },
+  },
+};
+</script>
+
 <style lang="scss">
+@import "assets/index.css";
+@import "~materialize-css/dist/css/materialize.min.css";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>

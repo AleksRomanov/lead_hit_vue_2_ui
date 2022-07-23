@@ -1,4 +1,4 @@
-# lead_hit_vue_2_ui
+# lead_hit_vue_ui
 
 ## Project setup
 ```
